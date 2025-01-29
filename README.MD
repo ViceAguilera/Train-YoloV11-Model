@@ -99,7 +99,7 @@ Este repositorio contiene un script para entrenar modelos de detección de objet
 ### Configuración ⚙️
 
 - Se debe cambiar el `path` en el archivo `config.yaml` en la linea 1, para escribir la ubicacion de la carpeta Train-model-yolov8.
-- Se debe guardar en las carpetas `test` , `train` y `valid` la carpeta `images` con las imagenes y la carpeta `labels`  los archivos `.txt` con las coordenadas de los objetos a detectar. (Se recomienda ocupar Roboflow)
+- Se debe guardar en las carpetas `test` , `train` y `valid` la carpeta `images` con las imagenes y la carpeta `labels`  los archivos `.txt` con las coordenadas de los objetos a detectar.
 
 ### Ejecución 📸
 *Python*
@@ -112,6 +112,9 @@ Este repositorio contiene un script para entrenar modelos de detección de objet
 
 > Este comando esta sujeto a cambios según lo que usted estime conveniente.
  
+## Dataset 📦
+
+El conjunto de datos utilizado para el entrenamiento de los modelos de detección de EPP fue obtenido de [Roboflow](https://roboflow.com/), específicamente del proyecto [PPE Detection Using CV Computer Vision Project](https://universe.roboflow.com/ai-camp-safety-equipment-detection/ppe-detection-using-cv).
 ## Licencia 📄
 
 Este proyecto está bajo el _MIT LICENSE_ - mira el archivo [LICENSE](LICENSE) para detalles
