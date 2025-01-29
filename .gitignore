@@ -1,3 +1,7 @@
+data/test/
+data/train/
+data/valid/
+
 !data/test/.gitkeep
 !data/train/.gitkeep
 !data/valid/.gitkeep
