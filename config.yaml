@@ -1,0 +1,7 @@
+path: C:\Users\vicen\PycharmProjects\TrainYolo11\data #ruta de la carpeta data
+test: test\images #ruta de la carpeta test
+train: train\images #ruta de la carpeta train
+val: valid\images #ruta de la carpeta val
+
+nc: 7
+names: ['Person', 'goggles', 'helmet', 'no-goggles', 'no-helmet', 'no-vest', 'vest']
