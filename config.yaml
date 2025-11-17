@@ -3,5 +3,5 @@ test: test\images #ruta de la carpeta test
 train: train\images #ruta de la carpeta train
 val: valid\images #ruta de la carpeta val
 
-nc: 7
-names: ['Person', 'goggles', 'helmet', 'no-goggles', 'no-helmet', 'no-vest', 'vest']
+nc: 4
+names: ['goggles', 'helmet', 'person', 'vest']

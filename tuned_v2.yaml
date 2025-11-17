@@ -1,0 +1,51 @@
+# Configuración YOLOv11 afinada (v2) para PPE
+# Objetivo: acercarse o superar train12 en mAP50-95
+# con mejor capacidad de modelo pero sin disparar el tiempo.
+
+# Entrenamiento
+epochs: 160        # ligeramente más que 150, pero no tanto como 180
+imgsz: 640         # igual que train12 para controlar tiempo
+batch: 8           # más seguro para yolo11s en 8GB
+project: runs
+name: train_tuned_v2
+patience: 50
+save_period: 10
+deterministic: true
+multi_scale: false
+workers: 0         # evita problemas de multiprocessing en Windows
+cache: ram         # cachea en RAM (3–4 GB). Si falta RAM, cambia a false.
+
+# Optimizador y LR
+optimizer: auto    # deja que Ultralytics elija (suele ser AdamW)
+lr0: 0.01
+lrf: 0.01
+cos_lr: true       # scheduler coseno para mejor fin de entrenamiento
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Augmentations (suaves, orientadas a PPE)
+augment: true
+mosaic: 1.0
+mixup: 0.05
+copy_paste: 0.1
+auto_augment: randaugment
+erasing: 0.2       # algo menor que 0.4 para no borrar PPE pequeños
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+fliplr: 0.5
+flipud: 0.0
+
+# Validación / inferencia
+rect: false
+iou: 0.7
+max_det: 300
+plots: true
+

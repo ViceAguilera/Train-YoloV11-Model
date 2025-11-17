@@ -1,0 +1,49 @@
+# Hyperparameter overrides for Ultralytics YOLOv11 to improve metrics
+# Focus: stronger but balanced augmentation, cosine LR, higher resolution,
+# multi-scale training, and a slightly larger model capacity (script default).
+
+# Training
+epochs: 180
+imgsz: 800
+batch: 8
+project: runs
+name: train_tuned
+patience: 50
+save_period: 10
+deterministic: false
+multi_scale: true
+# Evita problemas de multiproceso en Windows (pickle truncated)
+workers: 0
+# Cachea en RAM (seguro con workers=0). Si hay poca RAM, cámbialo a false.
+cache: ram
+
+# Optimizer & LR schedule
+optimizer: adamw
+lr0: 0.003
+lrf: 0.001
+cos_lr: true
+warmup_epochs: 5.0
+weight_decay: 0.0005
+
+# Augmentations (balanced for small objects like PPE)
+augment: true
+mosaic: 1.0
+mixup: 0.1
+copy_paste: 0.15
+auto_augment: randaugment
+erasing: 0.2
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+fliplr: 0.5
+flipud: 0.0
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+
+# Validation / inference-related
+rect: false
+iou: 0.7
+max_det: 300
+plots: true
