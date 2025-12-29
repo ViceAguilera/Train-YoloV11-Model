@@ -1,0 +1,51 @@
+# Configuración YOLOv11 afinada (v4) para Construction-PPE
+# Objetivo: usar nuestro mejor set de hiperparámetros (v3)
+# sobre el dataset oficial construction-ppe.
+
+# Entrenamiento
+epochs: 180        # algo más largo, dejará de entrenar por paciencia
+imgsz: 640         # resolución estable (rápida y suficiente)
+batch: 8           # seguro para yolo11s en 8GB
+project: runs
+name: train_tuned_v4_construction_ppe
+patience: 40       # early stopping razonable para dataset nuevo
+save_period: 10
+deterministic: true
+multi_scale: false
+workers: 0         # evita problemas de multiprocessing en Windows
+cache: ram         # si falta RAM, cambia a false
+
+# Optimizador y LR (SGD)
+optimizer: SGD
+lr0: 0.01
+lrf: 0.01
+cos_lr: true       # scheduler coseno (mejor fase final)
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Augmentations (afinadas para PPE)
+augment: true
+mosaic: 1.0
+mixup: 0.05
+copy_paste: 0.1
+auto_augment: simple
+erasing: 0.1       # menor para no borrar PPE pequeños
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+fliplr: 0.5
+flipud: 0.0
+
+# Validación / inferencia
+rect: false
+iou: 0.7
+max_det: 300
+plots: true
+
