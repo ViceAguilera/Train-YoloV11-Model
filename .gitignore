@@ -56,3 +56,8 @@ venv.bak/
 
 # PyPI configuration file
 .pypirc
+
+# Archivos de asistentes de IA
+.claude/
+CLAUDE.md
+AGENTS.md
